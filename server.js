@@ -36,8 +36,9 @@ app.get("/magic/:question", (req, res) => {
         "My sources say no",
         "Outlook not so good", 
         "Very doubtful"
-    ]
-    res.sendStatus(req.query.question);
+    ];
+    let randomIndex = Math.floor(Math.random() * responses.length);
+    res.send(`Question: ${req.params.question} & Answer: ${responses[randomIndex]}`);
 })
 
 app.listen(port, () => {
